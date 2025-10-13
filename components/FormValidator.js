@@ -17,12 +17,12 @@ export class FormValidator {
   enableValidation(inputList, inputElement) {
     inputList =
       inputList ||
-      Array.from(this._form.querySelectorAll(this._settings.inputSelector));
+      Array.from(this._form.querySelectorAll(this._settings.inputSelectorS));
     inputElement =
       inputElement || this._form.querySelector(this._settings.inputSelector);
     this._setEventListeners(inputList, inputElement);
     this._toggleButtonState();
-    this.checkValidity(this._form, this._inputElement);
+    this.checkValidity(inputElement);
 
     return this;
   }
@@ -50,11 +50,6 @@ export class FormValidator {
           this.resetForm();
         });
       }
-
-      this._form.addEventListener("submit", (event) => {
-        event.preventDefault();
-        this.checkValidity();
-      });
     });
   }
 
@@ -125,10 +120,7 @@ export class FormValidator {
     return this;
   }
 
-  checkValidity(form, inputElement) {
-    inputElement =
-      inputElement || this._form.querySelector(this._settings.inputSelector);
-    form = form || this._form;
+  checkValidity(inputElement) {
     if (!inputElement.validity.valid) {
       this.showInputError(inputElement);
       return false;
