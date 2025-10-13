@@ -13,3 +13,5 @@ HTML, CSS, Advanced JavaScript
 ## Deployment
 
 This project is deployed on GitHub Pages:
+
+https://misty265.github.io/se_project_todo-app/
