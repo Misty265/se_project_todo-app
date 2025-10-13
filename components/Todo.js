@@ -24,6 +24,9 @@ export class Todo {
     this._checkbox.checked = this._data.completed;
     this._checkbox.id = `todo-${this._data.id}`;
     this._label.setAttribute("for", `todo-${this._data.id}`);
+    if (!this._data.id) {
+      this._data.id = uuidv4();
+    }
     const dueDate = new Date(this._data.date);
     if (!isNaN(dueDate)) {
       this._dateElement.textContent = `Due: ${dueDate.toLocaleString("en-US", {
@@ -31,9 +34,10 @@ export class Todo {
         month: "short",
         day: "numeric",
       })}`;
+    } else {
+      this._dateElement.textContent = "No due date";
     }
     this._setEventListeners();
-    this.id = this._data.id || uuidv4();
 
     return this._element;
   }
