@@ -28,4 +28,10 @@ const validationConfig = {
   inactiveButtonClass: "button_disabled",
 };
 
+export const addTodoButton = document.querySelector(".button_action_add");
+export const addTodoPopup = document.querySelector("#add-todo-popup");
+export const addTodoForm = addTodoPopup.querySelector(".popup__form");
+export const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
+export const todosList = document.querySelector(".todos__list");
+
 export { initialTodos, validationConfig };

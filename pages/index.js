@@ -2,21 +2,18 @@ import { initialTodos, validationConfig } from "../utils/constants.js";
 import { Todo } from "../components/Todo.js";
 import { FormValidator } from "../components/FormValidator.js";
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
+import { Popup } from "../components/Popup.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { TodoCounter } from "../components/TodoCounter.js";
 
 const formValidator = new FormValidator(
   document.querySelector(validationConfig.formSelector),
   validationConfig,
   document.querySelectorAll(validationConfig.inputSelector),
   document.querySelector(validationConfig.inputSelector),
-  document.querySelector(validationConfig.submitButtonSelector)
+  document.querySelector(validationConfig.submitButtonSelector),
 );
 formValidator.enableValidation();
-
-const addTodoButton = document.querySelector(".button_action_add");
-const addTodoPopup = document.querySelector("#add-todo-popup");
-const addTodoForm = addTodoPopup.querySelector(".popup__form");
-const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
-const todosList = document.querySelector(".todos__list");
 
 addTodoButton.addEventListener("click", () => {
   openModal(addTodoPopup);
