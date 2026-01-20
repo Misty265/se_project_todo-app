@@ -4,13 +4,13 @@ class Popup {
   }
 
   open() {
-      popupSelector.clear();
-      popupSelector.classList.add("popup_visible");
-      popupSelector.openModal();
-    };
+    popupSelector.clear();
+    popupSelector.classList.add("popup_visible");
+    popupSelector.openModal();
+  }
 
-  close() { 
-    this._popupSelector.clear()
+  close() {
+    this._popupSelector.clear();
     this._popupSelector.classList.remove("popup_visible");
     this._popupSelector.closemModal();
   }
@@ -19,12 +19,11 @@ class Popup {
     if (evt.key === "Escape") {
       this.close();
     }
+  };
 
-    setEventListeners() {
-        this._popupSelector.addEventListener("click", (evt) => {
-            if (evt.target === this.popupSelector.closest)
-                this.close();
-        });
-    }
-};
+  setEventListeners() {
+    this._popupSelector.addEventListener("click", (evt) => {
+      if (evt.target === this.popupSelector.closest) this.close();
+    });
+  }
 }
