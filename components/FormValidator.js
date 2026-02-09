@@ -1,6 +1,7 @@
 export class FormValidator {
   constructor(form, settings, inputList, inputElement, submitButton) {
     this._settings = settings;
+
     this._form = form || document.querySelector(this._settings.formSelector);
     this._inputList =
       inputList ||
@@ -8,7 +9,7 @@ export class FormValidator {
 
     this._inputElement =
       inputElement || this._form.querySelector(this._settings.inputSelector);
-    this._form.noValidate = true; // Disable native validation
+    this._form.noValidate = true;
     this._submitButton =
       submitButton ||
       this._form.querySelector(this._settings.submitButtonSelector);
@@ -23,8 +24,7 @@ export class FormValidator {
   }
 
   _setEventListeners() {
-    const inputList = this._inputList;
-    inputList.forEach((inputElement) => {
+    this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         this._validateInput(inputElement);
         this._toggleButtonState();
@@ -78,7 +78,7 @@ export class FormValidator {
   resetValidation() {
     this._form.reset();
     const inputList = Array.from(
-      this._form.querySelectorAll(this._settings.inputSelector)
+      this._form.querySelectorAll(this._settings.inputSelector),
     );
     inputList.forEach((inputElement) => {
       this.hideInputError(inputElement);
