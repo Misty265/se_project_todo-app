@@ -24,7 +24,7 @@ const formValidator = new FormValidator(
 formValidator.enableValidation();
 
 const todos = new Section({
-  items: initialTodos,
+  items: [],
   containerSelector: ".todos__list",
 });
 
@@ -36,10 +36,7 @@ initialTodos.forEach((item) => {
 const todoPopup = new PopupWithForm(addTodoPopup, (value) => {
   const todo = new Todo(value, "#todo-template");
   todos.addItem(todo.getView());
-  todos.renderItems();
-  todoPopup._handleFormSubmit(value);
 });
-
 todoPopup.setEventListeners();
 addTodoButton.addEventListener("click", () => {
   todoPopup.open();
