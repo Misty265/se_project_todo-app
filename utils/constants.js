@@ -29,6 +29,7 @@ const validationConfig = {
 };
 
 export const addTodoButton = document.querySelector(".button_action_add");
+export const checkbox = document.querySelectorAll(".todo__completed");
 export const addTodoPopup = document.querySelector("#add-todo-popup");
 export const addTodoForm = addTodoPopup.querySelector(".popup__form");
 export const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
