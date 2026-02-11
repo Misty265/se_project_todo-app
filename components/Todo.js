@@ -10,7 +10,10 @@ export class Todo {
     this._counter = counter;
   }
   _setEventListeners() {
-    this._deleteButton.addEventListener("click", (evt) => {
+    this._deleteButton.addEventListener("click", () => {
+      if (this._data.completed) {
+        this._counter.updateCompleted(false);
+      }
       this._deleteButton.closest(".todo").remove();
       this._counter.updateTotal(false);
     });
